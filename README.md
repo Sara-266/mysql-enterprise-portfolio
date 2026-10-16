@@ -250,9 +250,9 @@ ORDER BY giver.giver_id ASC;
 #### Logic & Insights:
 - **The Challenge**: A standard `CROSS JOIN` or naive random join frequently creates self-assignments (`giver = receiver`) or generates isolated disjoint sub-loops.
 - **The Solution**: 
-  1. The CTE generates a contiguous sequence $1, 2, \dots, N$ via `ROW_NUMBER()`.
-  2. The self-join utilizes modulo arithmetic: $\text{receiver\_seq} = (\text{giver\_seq} \pmod N) + 1$.
-  3. Because $\gcd(1, N) = 1$, this mathematical offset forms a **single closed Hamiltonian cycle** covering all vertices. It deterministically guarantees that no employee draws themselves ($k \neq (k \bmod N) + 1$ for all $N > 1$) and guarantees $100\%$ bijective mapping without procedural loops or cursor overhead.
+  1. The CTE generates a contiguous sequence 1, 2, ..., N via `ROW_NUMBER()`.
+  2. The self-join utilizes modulo arithmetic: `receiver_seq = (giver_seq % N) + 1`.
+  3. Because `gcd(1, N) = 1`, this mathematical offset forms a **single closed Hamiltonian cycle** covering all vertices. It deterministically guarantees that no employee draws themselves (`k != (k mod N) + 1` for all `N > 1`) and guarantees 100% bijective mapping without procedural loops or cursor overhead.
 
 ---
 
