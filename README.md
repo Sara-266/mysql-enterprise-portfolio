@@ -249,7 +249,7 @@ User credentials with database creation and administrative grant privileges (e.g
 Step 1: Clone the Repository
 code
 Bash
-git clone https://github.com/your-username/mysql-enterprise-portfolio.git
+git clone https://github.com/Sara-266/mysql-enterprise-portfolio.git
 cd mysql-enterprise-portfolio
 Step 2: Configure Client Session Settings
 In MySQL Workbench, launch a connection to your instance and disable safe update restrictions for the current administration session:
